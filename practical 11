@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+class College {
+    String collegeName;
+
+    public College(String collegeName) {
+        this.collegeName = collegeName;
+    }
+
+    class Admission {
+        String studentName;
+        String course;
+
+        public void readData() {
+            Scanner sc = new Scanner(System.in);
+
+            System.out.print("Enter student name: ");
+            studentName = sc.nextLine();
+
+            System.out.print("Enter course: ");
+            course = sc.nextLine();
+        }
+
+        public void displayData() {
+            System.out.println("College Name: " + collegeName);
+            System.out.println("Student Name: " + studentName);
+            System.out.println("Course: " + course);
+        }
+    }
+}
+
+public class practical11 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter college name: ");
+        String cname = sc.nextLine();
+
+        College college = new College(cname);
+
+        College.Admission admission = college.new Admission();
+
+        admission.readData();
+
+        System.out.println("\nAdmission Details:");
+        admission.displayData();
+
+        sc.close();
+    }
+}
