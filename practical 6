@@ -1,4 +1,7 @@
-public class practical6 {
+
+import java.util.Scanner;
+
+class Rectangle {
     double width = 1;
     double height = 1;
 
@@ -16,5 +19,37 @@ public class practical6 {
 
     public double getPerimeter() {
         return 2 * (width + height);
+    }
+}
+
+public class practical6 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        Rectangle r1 = new Rectangle();
+
+        System.out.println("Default Rectangle:");
+        System.out.println("Width: " + r1.width);
+        System.out.println("Height: " + r1.height);
+        System.out.println("Area: " + r1.getArea());
+        System.out.println("Perimeter: " + r1.getPerimeter());
+
+        System.out.println();
+
+        System.out.print("Enter width: ");
+        double w = sc.nextDouble();
+
+        System.out.print("Enter height: ");
+        double h = sc.nextDouble();
+
+        Rectangle r2 = new Rectangle(w, h);
+
+        System.out.println("User Rectangle:");
+        System.out.println("Width: " + r2.width);
+        System.out.println("Height: " + r2.height);
+        System.out.println("Area: " + r2.getArea());
+        System.out.println("Perimeter: " + r2.getPerimeter());
+
+        sc.close();
     }
 }
