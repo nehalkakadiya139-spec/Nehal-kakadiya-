@@ -1,5 +1,5 @@
 abstract class Vehicle {
-    abstract String fuelType();
+    abstract String fuelType(); 
     abstract int noOfWheels();
 }
 
