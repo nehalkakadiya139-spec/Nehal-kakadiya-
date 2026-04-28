@@ -1,0 +1,17 @@
+import java.util.*;
+interface Exam{boolean isPassed(int m);}
+interface Classify{String getDivision(double a);}
+
+class Result implements Exam,Classify{
+    public boolean isPassed(int m){return m>=40;}
+    public String getDivision(double a){return a>=60?"First":"Second";}
+}
+
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        Result r=new Result();
+        System.out.println(r.isPassed(sc.nextInt()));
+        System.out.println(r.getDivision(sc.nextDouble()));
+    }
+}
