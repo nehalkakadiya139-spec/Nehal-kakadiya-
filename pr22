@@ -1,0 +1,22 @@
+class BookNotAvailableException extends Exception{
+    BookNotAvailableException(String m){super(m);}
+}
+
+class Library{
+    int books;
+    Library(int b){books=b;}
+    void issueBook(int c) throws BookNotAvailableException{
+        if(c<=books){books-=c;System.out.println("Book issued successfully");}
+        else throw new BookNotAvailableException("Requested books not available");
+    }
+}
+
+public class Main{
+    public static void main(String[] args){
+        try{
+            Library l=new Library(3);
+            l.issueBook(2);
+            l.issueBook(2);
+        }catch(Exception e){System.out.println(e.getMessage());}
+    }
+}
