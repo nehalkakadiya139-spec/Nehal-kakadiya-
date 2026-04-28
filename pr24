@@ -1,7 +1,7 @@
 class MyThread extends Thread {
     int start, end;
 
-    MyThread(int s, int e) {
+    MyThread(int s, int e) { 
         start = s;
         end = e;
     }
