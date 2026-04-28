@@ -1,0 +1,18 @@
+class T extends Thread{
+    int s,e;
+    T(int s,int e){this.s=s;this.e=e;}
+    public void run(){
+        for(int i=s;i<=e;i++)System.out.println(i);
+    }
+}
+
+public class Main{
+    public static void main(String[] args) throws Exception{
+        T t1=new T(1,100);
+        T t2=new T(101,200);
+        T t3=new T(201,300);
+        t1.start();t1.join();
+        t2.start();t2.join();
+        t3.start();
+    }
+}
