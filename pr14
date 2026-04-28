@@ -1,0 +1,78 @@
+import java.util.Scanner;
+
+class BankAccount {
+    String accountNumber, accountHolderName;
+    double balance;
+
+    void openAccount(String accNo, String name, double bal) {
+        accountNumber = accNo;
+        accountHolderName = name;
+        balance = bal;
+    }
+
+    void deposit(double amt) {
+        balance += amt;
+    }
+
+    void withdraw(double amt) {
+        if (amt <= balance) balance -= amt;
+    }
+
+    void checkBalance() {
+        System.out.println(balance);
+    }
+}
+
+class SavingAccount extends BankAccount {
+    double rate;
+
+    double calculateInterest() {
+        return balance * rate / 100;
+    }
+}
+
+class FixedDepositAccount extends BankAccount {
+    double rate;
+    int time;
+
+    double maturityAmount() {
+        return balance + (balance * rate * time / 100);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        SavingAccount sa = new SavingAccount();
+        FixedDepositAccount fd = new FixedDepositAccount();
+
+        String accNo = sc.next();
+        String name = sc.next();
+        double bal = sc.nextDouble();
+
+        sa.openAccount(accNo, name, bal);
+
+        double dep = sc.nextDouble();
+        sa.deposit(dep);
+
+        double wd = sc.nextDouble();
+        sa.withdraw(wd);
+
+        sa.rate = sc.nextDouble();
+
+        sa.checkBalance();
+        System.out.println(sa.calculateInterest());
+
+        String accNo2 = sc.next();
+        String name2 = sc.next();
+        double bal2 = sc.nextDouble();
+
+        fd.openAccount(accNo2, name2, bal2);
+
+        fd.rate = sc.nextDouble();
+        fd.time = sc.nextInt();
+
+        System.out.println(fd.maturityAmount());
+    }
+}
