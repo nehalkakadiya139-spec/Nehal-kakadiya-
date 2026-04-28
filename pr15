@@ -1,25 +1,58 @@
-import java.util.*;
+import java.util.Scanner;
 
-class Employee{
-    String name,dept;
-    void get(String n,String d){name=n;dept=d;}
-    void displayDetails(){System.out.println(name+" "+dept);}
+class Employee {
+    String name;
+    String department;
+
+    void getDetails(String n, String d) {
+        name = n;
+        department = d;
+    }
+
+    void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Department: " + department);
+    }
 }
 
-class Manager extends Employee{
-    int team; String project;
-    void getM(String n,String d,int t,String p){name=n;dept=d;team=t;project=p;}
-    void displayDetails(){System.out.println(name+" "+dept+" "+team+" "+project);}
+class Manager extends Employee {
+    int teamSize;
+    String projectName;
+
+    void getManagerDetails(String n, String d, int t, String p) {
+        name = n;
+        department = d;
+        teamSize = t;
+        projectName = p;
+    }
+
+    void displayDetails() {
+        System.out.println("Manager Name: " + name);
+        System.out.println("Department: " + department);
+        System.out.println("Team Size: " + teamSize);
+        System.out.println("Project: " + projectName);
+    }
 }
 
-public class Main{
-    public static void main(String[] args){
-        Scanner sc=new Scanner(System.in);
-        Employee e=new Employee();
-        Manager m=new Manager();
-        e.get(sc.next(),sc.next());
-        m.getM(sc.next(),sc.next(),sc.nextInt(),sc.next());
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        Employee e = new Employee();
+        Manager m = new Manager();
+
+        System.out.println("Enter Employee Details:");
+        e.getDetails(sc.next(), sc.next());
+
+        System.out.println("Enter Manager Details:");
+        m.getManagerDetails(sc.next(), sc.next(), sc.nextInt(), sc.next());
+
+        System.out.println("\nEmployee Details:");
         e.displayDetails();
+
+        System.out.println("\nManager Details:");
         m.displayDetails();
+
+        sc.close();
     }
 }
