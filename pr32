@@ -1,13 +1,30 @@
 import java.util.*;
 
-class Test{
-    static <T> boolean search(LinkedList<T> l,T e){return l.contains(e);}
-}
+public class Main {
 
-public class Main{
-    public static void main(String[] args){
-        LinkedList<Integer> a=new LinkedList<>();
-        a.add(1);a.add(2);
-        System.out.println(Test.search(a,2));
+    public static <T> boolean searchElement(LinkedList<T> list, T element) {
+        return list.contains(element);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        LinkedList<Integer> nums = new LinkedList<>();
+        for (int i = 0; i < 3; i++) {
+            nums.add(sc.nextInt());
+        }
+
+        int searchNum = sc.nextInt();
+        System.out.println(searchElement(nums, searchNum));
+
+        LinkedList<String> names = new LinkedList<>();
+        for (int i = 0; i < 3; i++) {
+            names.add(sc.next());
+        }
+
+        String searchName = sc.next();
+        System.out.println(searchElement(names, searchName));
+
+        sc.close();
     }
 }
