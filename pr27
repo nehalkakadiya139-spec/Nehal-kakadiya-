@@ -1,10 +1,32 @@
 import java.io.*;
+import java.util.Scanner;
 
-public class Main{
-    public static void main(String[] args) throws Exception{
-        BufferedWriter bw=new BufferedWriter(new FileWriter("students.txt"));
-        bw.write("1 A 90\n2 B 80\n3 C 70"); bw.close();
-        BufferedReader br=new BufferedReader(new FileReader("students.txt"));
-        String s; while((s=br.readLine())!=null)System.out.println(s);
+public class Main {
+    public static void main(String[] args) {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("students.txt"));
+
+            Scanner sc = new Scanner(System.in);
+
+            for (int i = 0; i < 3; i++) {
+                bw.write(sc.nextInt() + " " + sc.next() + " " + sc.nextInt());
+                bw.newLine();
+            }
+
+            bw.close();
+
+            BufferedReader br = new BufferedReader(new FileReader("students.txt"));
+
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+
+            br.close();
+            sc.close();
+
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
     }
 }
