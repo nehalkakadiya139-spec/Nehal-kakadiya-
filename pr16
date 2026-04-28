@@ -1,0 +1,12 @@
+import java.util.*;
+interface Classify{String getDivision(double avg);}
+class Result implements Classify{
+    public String getDivision(double avg){return avg>=60?"First Division":"No Division";}
+}
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        Result r=new Result();
+        System.out.println(r.getDivision(sc.nextDouble()));
+    }
+}
