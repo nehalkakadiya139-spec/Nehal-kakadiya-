@@ -1,0 +1,13 @@
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int amt=sc.nextInt();
+        int[] d={100,50,10,5,2,1};
+        for(int i:d){
+            System.out.println(i+" "+(amt/i));
+            amt%=i;
+        }
+    }
+}
