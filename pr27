@@ -1,0 +1,10 @@
+import java.io.*;
+
+public class Main{
+    public static void main(String[] args) throws Exception{
+        BufferedWriter bw=new BufferedWriter(new FileWriter("students.txt"));
+        bw.write("1 A 90\n2 B 80\n3 C 70"); bw.close();
+        BufferedReader br=new BufferedReader(new FileReader("students.txt"));
+        String s; while((s=br.readLine())!=null)System.out.println(s);
+    }
+}
