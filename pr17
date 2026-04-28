@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 interface Exam {
     boolean isPassed(int mark);
-}
+} 
 
 interface Classify {
     String getDivision(double average);
