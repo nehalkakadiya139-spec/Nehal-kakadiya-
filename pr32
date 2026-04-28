@@ -1,0 +1,13 @@
+import java.util.*;
+
+class Test{
+    static <T> boolean search(LinkedList<T> l,T e){return l.contains(e);}
+}
+
+public class Main{
+    public static void main(String[] args){
+        LinkedList<Integer> a=new LinkedList<>();
+        a.add(1);a.add(2);
+        System.out.println(Test.search(a,2));
+    }
+}
