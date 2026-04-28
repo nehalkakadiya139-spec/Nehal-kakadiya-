@@ -1,22 +1,41 @@
-class BookNotAvailableException extends Exception{
-    BookNotAvailableException(String m){super(m);}
-}
+import java.util.Scanner;
 
-class Library{
-    int books;
-    Library(int b){books=b;}
-    void issueBook(int c) throws BookNotAvailableException{
-        if(c<=books){books-=c;System.out.println("Book issued successfully");}
-        else throw new BookNotAvailableException("Requested books not available");
+class BookNotAvailableException extends Exception {
+    public BookNotAvailableException(String message) {
+        super(message);
     }
 }
 
-public class Main{
-    public static void main(String[] args){
-        try{
-            Library l=new Library(3);
-            l.issueBook(2);
-            l.issueBook(2);
-        }catch(Exception e){System.out.println(e.getMessage());}
+class Library {
+    int availableBooks;
+
+    Library(int books) {
+        availableBooks = books;
+    }
+
+    void issueBook(int count) throws BookNotAvailableException {
+        if (count <= availableBooks) {
+            availableBooks -= count;
+            System.out.println("Book issued successfully");
+        } else {
+            throw new BookNotAvailableException("Requested books not available");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        Library lib = new Library(sc.nextInt());
+
+        try {
+            lib.issueBook(sc.nextInt());
+            lib.issueBook(sc.nextInt());
+        } catch (BookNotAvailableException e) {
+            System.out.println(e.getMessage());
+        }
+
+        sc.close();
     }
 }
