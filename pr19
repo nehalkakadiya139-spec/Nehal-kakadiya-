@@ -1,29 +1,56 @@
 package student;
-public class Student{
+
+public class Student {
     int rollNo;
     String name;
-    public Student(int r,String n){rollNo=r;name=n;}
-    public void displayStudent(){System.out.println(rollNo+" "+name);}
+
+    public Student(int r, String n) {
+        rollNo = r;
+        name = n;
+    }
+
+    public void displayStudent() {
+        System.out.println("Roll No: " + rollNo);
+        System.out.println("Name: " + name);
+    }
 }
 
 package exam;
+
 import student.Student;
-import java.util.*;
-public class Result extends Student{
-    int m1,m2,m3;
-    public Result(int r,String n,int a,int b,int c){
-        super(r,n);
-        m1=a;m2=b;m3=c;
+import java.util.Scanner;
+
+public class Result extends Student {
+
+    int marks1;
+    int marks2;
+    int marks3;
+
+    public Result(int r, String n, int m1, int m2, int m3) {
+        super(r, n);
+        marks1 = m1;
+        marks2 = m2;
+        marks3 = m3;
     }
-    public void displayResult(){
+
+    public void displayResult() {
         displayStudent();
-        int total=m1+m2+m3;
-        double avg=total/3.0;
-        System.out.println(total+" "+avg);
+
+        int total = marks1 + marks2 + marks3;
+        double average = total / 3.0;
+
+        System.out.println("Total: " + total);
+        System.out.println("Average: " + average);
     }
-    public static void main(String[] args){
-        Scanner sc=new Scanner(System.in);
-        Result r=new Result(sc.nextInt(),sc.next(),sc.nextInt(),sc.nextInt(),sc.nextInt());
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Roll No, Name, Marks1, Marks2, Marks3: ");
+        Result r = new Result(sc.nextInt(), sc.next(), sc.nextInt(), sc.nextInt(), sc.nextInt());
+
         r.displayResult();
+
+        sc.close();
     }
 }
