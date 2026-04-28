@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 class Employee {
-    String name;
+    String name; 
     String department;
 
     void getDetails(String n, String d) {
