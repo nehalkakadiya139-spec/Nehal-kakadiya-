@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 interface Classify {
     String getDivision(double average);
-}
+} 
 
 class Result implements Classify {
     public String getDivision(double average) {
