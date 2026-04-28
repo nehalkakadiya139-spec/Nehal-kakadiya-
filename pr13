@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+class Shape {
+    double d1, d2;
+    void getData(double a, double b) {
+        d1 = a;
+        d2 = b;
+    }
+}
+
+class Triangle extends Shape {
+    double area() {
+        return 0.5 * d1 * d2;
+    }
+}
+
+class Rectangle extends Shape {
+    double area() {
+        return d1 * d2;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        Triangle t = new Triangle();
+        Rectangle r = new Rectangle();
+
+        double t1 = sc.nextDouble();
+        double t2 = sc.nextDouble();
+        double r1 = sc.nextDouble();
+        double r2 = sc.nextDouble();
+
+        t.getData(t1, t2);
+        r.getData(r1, r2);
+
+        System.out.println(t.area());
+        System.out.println(r.area());
+    }
+}
