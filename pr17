@@ -1,17 +1,45 @@
-import java.util.*;
-interface Exam{boolean isPassed(int m);}
-interface Classify{String getDivision(double a);}
+import java.util.Scanner;
 
-class Result implements Exam,Classify{
-    public boolean isPassed(int m){return m>=40;}
-    public String getDivision(double a){return a>=60?"First":"Second";}
+interface Exam {
+    boolean isPassed(int mark);
 }
 
-public class Main{
-    public static void main(String[] args){
-        Scanner sc=new Scanner(System.in);
-        Result r=new Result();
-        System.out.println(r.isPassed(sc.nextInt()));
-        System.out.println(r.getDivision(sc.nextDouble()));
+interface Classify {
+    String getDivision(double average);
+}
+
+class Result implements Exam, Classify {
+
+    public boolean isPassed(int mark) {
+        return mark >= 40;
+    }
+
+    public String getDivision(double average) {
+        if (average >= 60) {
+            return "First Division";
+        } else if (average >= 50) {
+            return "Second Division";
+        } else {
+            return "Third Division";
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter marks: ");
+        int marks = sc.nextInt();
+
+        System.out.print("Enter average: ");
+        double avg = sc.nextDouble();
+
+        Result r = new Result();
+
+        System.out.println("Passed: " + r.isPassed(marks));
+        System.out.println("Division: " + r.getDivision(avg));
+
+        sc.close();
     }
 }
