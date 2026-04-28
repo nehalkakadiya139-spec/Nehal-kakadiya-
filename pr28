@@ -1,0 +1,12 @@
+import java.io.*;
+
+public class Main{
+    public static void main(String[] args) throws Exception{
+        BufferedReader br=new BufferedReader(new FileReader("data.txt"));
+        int c=0,w=0,l=0; String s;
+        while((s=br.readLine())!=null){
+            l++; w+=s.split(" ").length; c+=s.replace(" ","").length();
+        }
+        System.out.println(c+" "+w+" "+l);
+    }
+}
