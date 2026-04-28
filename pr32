@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Main {
-
+ 
     public static <T> boolean searchElement(LinkedList<T> list, T element) {
         return list.contains(element);
     }
